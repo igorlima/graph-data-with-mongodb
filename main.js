@@ -11,7 +11,8 @@ require.config({
     forceView: 'force-view',
     myView: 'my-backbone-view',
     myModel: 'my-backbone-model',
-    dbaas: 'dbaas'
+    dbaas: 'dbaas',
+    io: '/socket.io/socket.io'
   },
   shim: {
     bootstrap: {
