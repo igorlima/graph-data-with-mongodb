@@ -54,7 +54,23 @@ http.listen(process.env.PORT || 5000, function(){
   console.log('listening on *:5000');
 });
 
-io.on('connection', function(socket){
+io.on('connection', function(socket) {
+
+  function removeLinkIfNodeWasDeleted(linkId, nodeId) {
+    Vertex.findById( nodeId, function(err, vertex) {
+      if (vertex) {
+        return;
+      }
+      Edge.findById(linkId, function(err, link) {
+        link.remove();
+      });
+    } );
+  }
+
+  function cleanUpLinkIfNeeded(link) {
+    removeLinkIfNodeWasDeleted( link.id, link.source.id );
+    removeLinkIfNodeWasDeleted( link.id, link.target.id );
+  }
 
   console.log('a user connected');
   socket.on('disconnect', function(){
@@ -71,6 +87,7 @@ io.on('connection', function(socket){
         links.forEach(function(link) {
           link.id = link._id;
           socket.emit( 'link-added', link );
+          cleanUpLinkIfNeeded( link );
         });
       } );
     });
