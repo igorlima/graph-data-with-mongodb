@@ -33,8 +33,9 @@ var express    = require('express'),
  * After that, create and use your own credential.
  * Thanks.
  *
- * MONGOLAB_URI=mongodb://example:example@ds033113.mongolab.com:33113/graph
- * 'mongodb://example:example@ds033113.mongolab.com:33113/graph'
+ * MONGOLAB_URI=mongodb://example:example@dogen.mongohq.com:10089/graph
+ * MONGOLAB_URI=mongodb://example:example@127.0.0.1:27017/graph
+ * 'mongodb://example:example@dogen.mongohq.com:10089/graph'
  */
 mongoose.connect(process.env.MONGOLAB_URI, function (error) {
     if (error) console.error(error);
