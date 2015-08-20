@@ -1,5 +1,4 @@
 
-// https://devcenter.heroku.com/articles/mongolab
 var express    = require('express'),
     mongoose   = require('mongoose'),
     bodyParser = require('body-parser'),
@@ -33,11 +32,11 @@ var express    = require('express'),
  * After that, create and use your own credential.
  * Thanks.
  *
- * MONGOLAB_URI=mongodb://example:example@dogen.mongohq.com:10089/graph
- * MONGOLAB_URI=mongodb://example:example@127.0.0.1:27017/graph
+ * COMPOSE_URI=mongodb://example:example@dogen.mongohq.com:10089/graph
+ * COMPOSE_URI=mongodb://example:example@127.0.0.1:27017/graph
  * 'mongodb://example:example@dogen.mongohq.com:10089/graph'
  */
-mongoose.connect(process.env.MONGOLAB_URI, function (error) {
+mongoose.connect(process.env.COMPOSE_URI, function (error) {
     if (error) console.error(error);
     else console.log('mongo connected');
 });
