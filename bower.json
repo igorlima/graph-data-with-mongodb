@@ -12,7 +12,7 @@
     "jquery": "~2.1.4",
     "requirejs-bower": "~2.1.19",
     "underscore": "~1.8.3",
-    "xaguilars-bootstrap-colorpicker": "~2.2.0"
+    "bootstrap-colorpicker": "~2.2.0"
   },
   "license": "MIT",
   "private": true,
